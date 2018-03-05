@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home</title>
+</head>
+<body>
+<h2>Home</h2>
+
+<form method="POST" action="/addUser">
+    <input type="hidden" name="id" value="1"/>
+    <input type="text" name="name" value="Hanna"/>
+    <input type="text" name="amount" value="125.0"/>
+    <input type="submit"  value="Add user"/>
+</form>
+<table>
+   <tr th:each="user : ${userlist}">
+    <td th:text="${user.name}"></td>
+    <td th:text="${user.amount}"></td>
+   </tr>
+    <tr>
+        <td>Average amount:</td><td th:text="${average}"></td>
+    </tr>
+</table>
+</body>
+</html>
