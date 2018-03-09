@@ -6,21 +6,29 @@
 </head>
 <body>
 <h2>Home</h2>
-
-<form method="POST" action="/addUser">
-    <input type="hidden" name="id" value="1"/>
-    <input type="text" name="name" value="Hanna"/>
-    <input type="text" name="amount" value="125.0"/>
-    <input type="submit"  value="Add user"/>
+<h2>Login</h2>
+<form method="POST" action="/login">
+    <input type="text" name="name" value="anna"/>
+    <input type="text" name="password" value="123456"/>
+    <input type="submit"  value="Login"/>
 </form>
-<table>
-   <tr th:each="user : ${userlist}">
-    <td th:text="${user.name}"></td>
-    <td th:text="${user.amount}"></td>
-   </tr>
-    <tr>
-        <td>Average amount:</td><td th:text="${average}"></td>
-    </tr>
-</table>
+
+<div th:if="${session.status == '1'}">
+    <form method="POST" action="/addUser">
+        <input type="hidden" name="id" value="1"/>
+        <input type="text" name="name" value="anna"/>
+        <input type="text" name="amount" value="125.0"/>
+        <input type="submit"  value="Add user"/>
+    </form>
+    <table>
+       <tr th:each="user : ${userlist}">
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.amount}"></td>
+       </tr>
+        <tr>
+            <td>Average amount:</td><td th:text="${average}"></td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
