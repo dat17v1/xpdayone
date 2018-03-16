@@ -11,16 +11,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 import java.util.List;
 
 @Controller
 public class HomeController {
 
     private Database database = new Database();
-    private List<User> users = database.getAllUsers();
     private StatsCalculator statsCalculator = new StatsCalculator(database);
 
     @ModelAttribute
@@ -43,7 +40,7 @@ public class HomeController {
     public String addUser(User user, Model model){
         System.out.println("tilføjet user: " + user.getName());
         addNewUser(user);
-
+        model.addAttribute("name", user.getName());
 //        model.addAttribute("userlist", database.getAllUsers());
 //        model.addAttribute("average", statsCalculator.getAverageAmount());
         return "index";
