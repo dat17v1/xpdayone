@@ -8,12 +8,12 @@
 <h2>Home</h2>
 <h2>Login</h2>
 <form method="POST" action="/login">
-    <input type="text" name="name" value="anna"/>
-    <input type="text" name="password" value="123456"/>
-    <input type="submit"  value="Login"/>
+    <input type="text" id="loginname" name="name" value="anna"/>
+    <input type="text" id= "loginpassword" name="password" value="123456"/>
+    <input type="submit"  id="loginbutton" value="Login"/>
 </form>
 
-<div th:if="${session.status == '1'}">
+<div id="maincontent" th:if="${session.status == '1'}">
     <form method="POST" action="/addUser">
         <input type="hidden" name="id" value="1"/>
         <input type="text" name="name" value="anna"/>

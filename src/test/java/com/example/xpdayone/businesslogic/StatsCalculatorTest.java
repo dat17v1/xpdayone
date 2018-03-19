@@ -34,7 +34,7 @@ public class StatsCalculatorTest {
         users.add(new User(1,"", 124));
         users.add(new User(1,"", 125));
         when(database.getAllUsers()).thenReturn(users);
-        assertEquals(122, statsCalculator.getAverageAmount(), 0.0);
+        assertEquals(124, statsCalculator.getAverageAmount(), 0.0);
 
 
     }
